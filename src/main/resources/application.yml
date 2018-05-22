@@ -11,9 +11,9 @@ spring:
     console:
       enabled: true
   datasource:
-    url: jdbc:mysql://192.168.152.129:3309/jpademo?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8
-    username: admin
-    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/jpademo?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8
+    username: root
+    password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true

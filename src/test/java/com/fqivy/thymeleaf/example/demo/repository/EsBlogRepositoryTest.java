@@ -38,7 +38,7 @@ public class EsBlogRepositoryTest {
         String summary = "相思";
         String content = "相思";
 
-        Page<EsBlog> page = esBlogRepository.findDistinctEsBlogByTitleContainingOrSummaryContainingOrContentContaining(title, summary, content);
+        Page<EsBlog> page = esBlogRepository.findDistinctEsBlogByTitleContainingOrSummaryContainingOrContentContaining(title, summary, content, pageable);
         assertEquals(2, page.getTotalElements());
 
         System.out.println("------------------start--1------");
@@ -46,5 +46,18 @@ public class EsBlogRepositoryTest {
             System.out.println(esBlog);
         }
         System.out.println("------------------end----1------");
+
+        title = "相思";
+
+        page = esBlogRepository.findDistinctEsBlogByTitleContainingOrSummaryContainingOrContentContaining(title, summary, content, pageable);
+        assertEquals(1, page.getTotalElements());
+
+        System.out.println("-----------------start--2-------");
+        for (EsBlog esBlog : page.getContent()) {
+            System.out.println(esBlog);
+        }
+
+        System.out.println("-----------------end----2--------");
+
     }
 }
