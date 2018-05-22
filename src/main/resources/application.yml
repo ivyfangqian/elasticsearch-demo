@@ -1,0 +1,26 @@
+server:
+    port: 8100
+spring:
+  thymeleaf:
+    encoding: utf-8
+    #热部署静态文件
+    cache: false
+    #使用HTML5标准
+    mode: HTML5
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:mysql://192.168.152.129:3309/jpademo?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8
+    username: admin
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  data:
+    elasticsearch:
+      #ElasticSearch服务地址
+      cluster-nodes: localhost:9300
+

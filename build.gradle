@@ -1,0 +1,57 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.13.BUILD-SNAPSHOT'
+    }
+
+    ext['thymeleaf.version'] = '3.0.3.RELEASE'
+    ext['thymeleaf-layout-dialect.version'] = '2.2.0'
+
+    ext['hibernate.version'] = '5.2.8.Final'
+
+    repositories {
+        //mavenCentral()
+        maven {
+            url "http://maven.aliyun.com/nexus/content/groups/public"
+        }
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+}
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.fqivy.thymeleaf.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+//    mavenCentral()
+    maven {
+        url "http://maven.aliyun.com/nexus/content/groups/public"
+    }
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('mysql:mysql-connector-java:6.0.5')
+    compile('org.springframework.boot:spring-boot-devtools')
+
+    //添加spring data elastic search依赖
+    compile('org.springframework.boot:spring-boot-starter-data-elasticsearch')
+
+    //添加jna依赖
+    compile('net.java.dev.jna:jna:4.3.0')
+
+//	runtime('com.h2database:h2:1.4.193')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
